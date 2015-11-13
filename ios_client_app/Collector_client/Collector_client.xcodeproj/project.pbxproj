@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A26FC2ED7FA711F89DF3236A /* Pods_Collector_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96462296F684E2CBB615039A /* Pods_Collector_client.framework */; };
+		C1C07BE21BF26CE40048D108 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C07BE11BF26CE40048D108 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C1F390851BEF295E00B23A4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F390841BEF295E00B23A4D /* AppDelegate.swift */; };
 		C1F390871BEF295E00B23A4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F390861BEF295E00B23A4D /* ViewController.swift */; };
 		C1F3908A1BEF295E00B23A4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F390881BEF295E00B23A4D /* Main.storyboard */; };
@@ -16,7 +17,7 @@
 		C1F390921BEF295E00B23A4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F390901BEF295E00B23A4D /* LaunchScreen.storyboard */; };
 		C1F3909D1BEF295F00B23A4D /* Collector_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F3909C1BEF295F00B23A4D /* Collector_clientTests.swift */; };
 		C1F390A81BEF295F00B23A4D /* Collector_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F390A71BEF295F00B23A4D /* Collector_clientUITests.swift */; };
-		C1F390B61BF0129600B23A4D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F390B51BF0129600B23A4D /* Server.swift */; settings = {ASSET_TAGS = (); }; };
+		C1F390B61BF0129600B23A4D /* SiteInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F390B51BF0129600B23A4D /* SiteInterface.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		8719909ED60C25593530050E /* Pods-Collector_client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collector_client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collector_client/Pods-Collector_client.release.xcconfig"; sourceTree = "<group>"; };
 		96462296F684E2CBB615039A /* Pods_Collector_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collector_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C16D59576802BF71B0B343EC /* Pods-Collector_client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collector_client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Collector_client/Pods-Collector_client.debug.xcconfig"; sourceTree = "<group>"; };
+		C1C07BE11BF26CE40048D108 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C1F390811BEF295E00B23A4D /* Collector_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collector_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F390841BEF295E00B23A4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F390861BEF295E00B23A4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		C1F390A31BEF295F00B23A4D /* Collector_clientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Collector_clientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F390A71BEF295F00B23A4D /* Collector_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector_clientUITests.swift; sourceTree = "<group>"; };
 		C1F390A91BEF295F00B23A4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1F390B51BF0129600B23A4D /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		C1F390B51BF0129600B23A4D /* SiteInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +129,9 @@
 			children = (
 				C1F390841BEF295E00B23A4D /* AppDelegate.swift */,
 				C1F390861BEF295E00B23A4D /* ViewController.swift */,
-				C1F390B51BF0129600B23A4D /* Server.swift */,
+				C1F390B51BF0129600B23A4D /* SiteInterface.swift */,
 				C1F390881BEF295E00B23A4D /* Main.storyboard */,
+				C1C07BE11BF26CE40048D108 /* LoginViewController.swift */,
 				C1F3908E1BEF295E00B23A4D /* Assets.xcassets */,
 				C1F390901BEF295E00B23A4D /* LaunchScreen.storyboard */,
 				C1F390931BEF295E00B23A4D /* Info.plist */,
@@ -341,7 +344,8 @@
 			files = (
 				C1F3908D1BEF295E00B23A4D /* Collector_client.xcdatamodeld in Sources */,
 				C1F390871BEF295E00B23A4D /* ViewController.swift in Sources */,
-				C1F390B61BF0129600B23A4D /* Server.swift in Sources */,
+				C1F390B61BF0129600B23A4D /* SiteInterface.swift in Sources */,
+				C1C07BE21BF26CE40048D108 /* LoginViewController.swift in Sources */,
 				C1F390851BEF295E00B23A4D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

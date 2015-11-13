@@ -14,3 +14,7 @@ urlpatterns = [
     # The auto made url patterns for my models
     url(r'^', include(router.urls)),
 ]
+
+urlpatterns += [
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+]

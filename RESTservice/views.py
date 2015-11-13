@@ -66,6 +66,8 @@ class UserViewSet(viewsets.ModelViewSet):
     lookup_field = 'username'
     serializer_class = UserSerializer
 
+    permission_classes = ( permissions.IsAuthenticatedOrReadOnly, )
+
 
 
 """Create, List, Retrieve, Update and Destory COLLECTORViewSet"""

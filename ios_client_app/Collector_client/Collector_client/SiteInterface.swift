@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import BrightFutures
 
 let SERVER_ROOT_URL = "http://127.0.0.1:8000/"
 let USERS = "users/"
@@ -25,11 +26,19 @@ class Server{
     var user : String = ""
     
     // MARK: Initializer
-    // Nothing
+    init() {}
     
     // MARK: GET and POST
-    func GET(urlExtension : String) -> Request{
-        return Alamofire.request(.GET, SERVER_ROOT_URL+urlExtension)
+    func GET(urlExtension : String) -> Future<JSON, NoError>{
+        let promise = Promise<JSON, NoError>()
+        Alamofire.request(.GET, SERVER_ROOT_URL+urlExtension).responseJSON{ response in
+            guard let data = response.data else{
+                return
+            }
+            let json = JSON(data:data)
+            promise.success(json)
+        }
+        return promise.future
     }
     
     //    func POST(urlExtension : String? = "") -> JSON
@@ -42,8 +51,9 @@ class Server{
 
     // MARK: User functions
     
-    func getSingleUser(username : String) -> Request{
-        return self.GET(USERS + username)
+    func getSingleUser(username : String) -> Future<JSON, NoError>{
+        let userInfo : .Future<JSON, NoError> = self.GET(USERS + username)
+        return userInfo
     }
     
 //    // MARK: Login/Logout

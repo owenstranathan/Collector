@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BrightFutures.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Collector_client.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,7 +32,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>026DD4D22381872DD2BC097819F99BCA</key>
+		<key>2690B739D79430452BBCD31EAE13D044</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA8DDCEB0EEB0E61D37FC008AB0A945A</key>
+		<key>7BB17359068A26BB1EF61653A3E7C9A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDC6729670233B296BFE4EAC667CC715</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCB45C0AF8651B0CC72E303D3F242439</key>
 		<dict>
 			<key>primary</key>
 			<true/>

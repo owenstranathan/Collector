@@ -32,15 +32,16 @@ class ViewController: UIViewController {
 //                
 //            }
         let server = Server()
-        server.getSingleUser("owenstranathan").responseJSON{ response in
-            guard let data = response.data else{
-                return
-            }
-            let json = JSON(data:data)
-            server.get = json
-            print(json)
-        }
-        
+        print(server.getSingleUser("owenstranathan"))
+//        server.getSingleUser("owenstranathan").responseJSON{ response in
+//            guard let data = response.data else{
+//                return
+//            }
+//            let json = JSON(data:data)
+//            server.get = json
+//            print(json)
+//        }
+//        
     }
 
     override func didReceiveMemoryWarning() {
