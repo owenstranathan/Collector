@@ -206,6 +206,9 @@
                                     <constraint firstAttribute="height" constant="30" id="2ec-OA-AAw"/>
                                 </constraints>
                                 <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="CreateUser:" destination="H1C-X5-09k" eventType="touchUpInside" id="0ca-qD-S5i"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -42,10 +42,8 @@ class CreateUserView : UIViewController{
     }
     
     // MARK: Actions
-    
-    @IBAction func createUser(sender: UIButton) {
-        
+  
+    @IBAction func CreateUser(sender: UIButton) {
         
     }
-
 }
