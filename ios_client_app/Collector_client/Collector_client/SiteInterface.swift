@@ -20,10 +20,16 @@ let COLLECTABLES = "collectables/"
 
 class Server{
     
+    // MARK: Members
+    // Static user variable (ie, only one user can be signed in at one time)
+    static var user : String = "None"
+    static var collector : String = "None"
+    static var password : String =  "None"
+    static var loggedin : Bool = false
     
-    //MARK: Members
-    var get : JSON = nil
-    var user : String = ""
+
+    static let sharedInstance = Server()
+    
     
     // MARK: Initializer
     init() {}
@@ -52,14 +58,36 @@ class Server{
     // MARK: User functions
     
     func getSingleUser(username : String) -> Future<JSON, NoError>{
-        let userInfo : .Future<JSON, NoError> = self.GET(USERS + username)
+        let userInfo : Future<JSON, NoError> = self.GET(USERS + username)
         return userInfo
     }
     
-//    // MARK: Login/Logout
-//    func login(username : String, password:String) ->String{
-//        
-//    }
-//    
     
+    // MARK: Login/Logout
+    
+    // Login: Returns true if login successful and false if otherwize
+    func login(username : String, password : String) -> Future<Bool, NoError> {
+        let promise = Promise<Bool, NoError>()
+        let usr_info_ftr : Future<JSON, NoError> = getSingleUser(username)
+        usr_info_ftr.onSuccess(){ result in
+            guard let response_password = result["password"].rawString() else{
+                print("Error getting password from json object")
+                return
+            }
+            if(password == response_password){
+                Server.user = username
+                Server.password = password
+                Server.loggedin = true
+                promise.success(true)
+            }
+            else{
+                promise.success(false)
+            }
+        }.onFailure(){ error in
+                promise.failure(error)
+        }
+        return promise.future
+    }
+    
+
 }

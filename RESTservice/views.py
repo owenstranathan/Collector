@@ -9,43 +9,7 @@ from rest_framework.response import Response
 from rest_framework import renderers
 from rest_framework import viewsets
 
-#
-# from rest_framework import mixins
-# from rest_framework import generics
-#
-# class UserDetail(mixins.RetrieveModelMixin,
-#                     mixins.UpdateModelMixin,
-#                     mixins.DestroyModelMixin,
-#                     generics.GenericAPIView):
-#
-#     queryset = User.objects.all()
-#     lookup_field = "username"
-#     serializer_class = UserSerializer
-#
-#
-#     # def get(self, request, username, format=None):
-#     #     try:
-#     #         user = User.objects.get(username=username)
-#     #     except User.DoesNotExist:
-#     #         raise Http404
-#     #     serializer = UserSerializer(user)
-#     #     return Response(serializer.data)
-#
-#     def get(self, request, *args, **kwargs):
-#         return self.retrieve(request, *args, **kwargs)
-#
-#     def put(self, request, *args, **kwargs):
-#         return self.update(request, *args, **kwargs)
-#
-#     def delete(self, request, *args, **kwargs):
-#         return self.destroy(request, *args, **kwargs)
-#
-# class UserList(generics.ListCreateAPIView):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-#
-#
-#
+
 """Create, List and Retrieve TOPICViewSet"""
 class TopicViewSet(mixins.CreateModelMixin,
                    mixins.ListModelMixin,
@@ -66,7 +30,7 @@ class UserViewSet(viewsets.ModelViewSet):
     lookup_field = 'username'
     serializer_class = UserSerializer
 
-    permission_classes = ( permissions.IsAuthenticatedOrReadOnly, )
+    # permission_classes = ( permissions.IsAuthenticatedOrReadOnly, )
 
 
 
