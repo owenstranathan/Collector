@@ -89,5 +89,10 @@ class Server{
         return promise.future
     }
     
+    func getRandomCollectable() -> Future<JSON, NoError> {
+        let promise = Promise<JSON, NoError>()
+        Alamofire.request(.GET, SERVER_ROOT_URL+
+    }
+    
 
 }
