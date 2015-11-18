@@ -5,9 +5,10 @@ from RESTservice.serializers import UserSerializer, TopicSerializer, CollectorSe
 from RESTservice.models import Topic, Collector, Collection, Collectable
 from rest_framework import generics, permissions, mixins
 from rest_framework.decorators import detail_route, api_view
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import renderers
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 
 
 """Create, List and Retrieve TOPICViewSet"""
@@ -32,12 +33,10 @@ class UserViewSet(viewsets.ModelViewSet):
 
     # permission_classes = ( permissions.IsAuthenticatedOrReadOnly, )
 
-
-
 """Create, List, Retrieve, Update and Destory COLLECTORViewSet"""
 class CollectorViewSet(viewsets.ModelViewSet):
     queryset = Collector.objects.all()
-    lookup_field = 'username'
+    lookup_field = 'user__username'
     serializer_class = CollectorSerializer
 
 

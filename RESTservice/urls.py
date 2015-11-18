@@ -1,5 +1,6 @@
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.urlpatterns import format_suffix_patterns
 from RESTservice import views
 #
 # # Create a router and register our viewsets with it
@@ -15,6 +16,7 @@ urlpatterns = [
     url(r'^', include(router.urls)),
 ]
 
-urlpatterns += [
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-]
+# urlpatterns = format_suffix_patterns(urlpatterns)
+# urlpatterns += [
+#     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+# ]

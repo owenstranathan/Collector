@@ -23,9 +23,10 @@ class Server{
     // MARK: Members
     // Static user variable (ie, only one user can be signed in at one time)
     static var user : String = "None"
-    static var collector : String = "None"
+    static var user_id : Int = 0
     static var password : String =  "None"
     static var loggedin : Bool = false
+    static var userDetails : JSON = nil
     
 
     static let sharedInstance = Server()
@@ -77,7 +78,9 @@ class Server{
             if(password == response_password){
                 Server.user = username
                 Server.password = password
+                Server.userDetails = result
                 Server.loggedin = true
+                print(result)
                 promise.success(true)
             }
             else{
@@ -89,10 +92,29 @@ class Server{
         return promise.future
     }
     
-    func getRandomCollectable() -> Future<JSON, NoError> {
+    func getRandomCollectable()-> Future<JSON, NoError>{
         let promise = Promise<JSON, NoError>()
-        Alamofire.request(.GET, SERVER_ROOT_URL+
+        Alamofire.request(.GET, SERVER_ROOT_URL+COLLECTABLES).responseJSON{ response in
+            guard let data = response.data else{
+                return
+            }
+            let json = JSON(data:data)
+            //This is ugly random number generation
+            let random = Int(arc4random_uniform(UInt32(json.count)))
+            //print(json[random])
+
+            promise.success(json[random])
+        }
+        return promise.future
     }
+    
+    func getCollector(username:String) -> Future<JSON, NoError>{
+        return self.GET(COLLECTORS+username)
+    }
+
+//    func getRandomElement(JSON) -> JSON{
+//        
+//    }
     
 
 }

@@ -10,6 +10,8 @@
 		A26FC2ED7FA711F89DF3236A /* Pods_Collector_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96462296F684E2CBB615039A /* Pods_Collector_client.framework */; };
 		C11BF9B01BF9625800E8C75C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BF9AF1BF9625800E8C75C /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C11BF9B21BF97A8800E8C75C /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BF9B11BF97A8800E8C75C /* CreateUserViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C11BF9B61BFBD9DE00E8C75C /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BF9B51BFBD9DE00E8C75C /* DiscoveryViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C11BF9B81BFBF0B300E8C75C /* CollectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11BF9B71BFBF0B300E8C75C /* CollectorViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C1F390851BEF295E00B23A4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F390841BEF295E00B23A4D /* AppDelegate.swift */; };
 		C1F3908A1BEF295E00B23A4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F390881BEF295E00B23A4D /* Main.storyboard */; };
 		C1F3908D1BEF295E00B23A4D /* Collector_client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1F3908B1BEF295E00B23A4D /* Collector_client.xcdatamodeld */; };
@@ -42,6 +44,8 @@
 		96462296F684E2CBB615039A /* Pods_Collector_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collector_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C11BF9AF1BF9625800E8C75C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C11BF9B11BF97A8800E8C75C /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		C11BF9B51BFBD9DE00E8C75C /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
+		C11BF9B71BFBF0B300E8C75C /* CollectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectorViewController.swift; sourceTree = "<group>"; };
 		C16D59576802BF71B0B343EC /* Pods-Collector_client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collector_client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Collector_client/Pods-Collector_client.debug.xcconfig"; sourceTree = "<group>"; };
 		C1F390811BEF295E00B23A4D /* Collector_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collector_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F390841BEF295E00B23A4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				C1F390841BEF295E00B23A4D /* AppDelegate.swift */,
 				C1F390B51BF0129600B23A4D /* SiteInterface.swift */,
 				C1F390881BEF295E00B23A4D /* Main.storyboard */,
+				C11BF9B71BFBF0B300E8C75C /* CollectorViewController.swift */,
+				C11BF9B51BFBD9DE00E8C75C /* DiscoveryViewController.swift */,
 				C1F3908E1BEF295E00B23A4D /* Assets.xcassets */,
 				C1F390901BEF295E00B23A4D /* LaunchScreen.storyboard */,
 				C1F390931BEF295E00B23A4D /* Info.plist */,
@@ -343,6 +349,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C11BF9B01BF9625800E8C75C /* LoginViewController.swift in Sources */,
+				C11BF9B61BFBD9DE00E8C75C /* DiscoveryViewController.swift in Sources */,
+				C11BF9B81BFBF0B300E8C75C /* CollectorViewController.swift in Sources */,
 				C11BF9B21BF97A8800E8C75C /* CreateUserViewController.swift in Sources */,
 				C1F3908D1BEF295E00B23A4D /* Collector_client.xcdatamodeld in Sources */,
 				C1F390B61BF0129600B23A4D /* SiteInterface.swift in Sources */,

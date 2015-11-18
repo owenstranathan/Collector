@@ -45,18 +45,14 @@ class LoginView: UIViewController {
             return
         }
         
-        // FIXME:
-        // This looks ugly, I don't think I can refactor this into
-        // The server class because of the future continuation that needs to be done
-        // returning from a separate login function say, would be problematic.
-        // Maybe I could return another future, with validateded data
-        // after doing more validation? Dunno...
         
         let server = Server()
         server.login(username, password:password).onSuccess(){
             result in
             if result{
                 print("login successful")
+                // NOTE: SEGUE TO PROFILE HERE!
+                self.performSegueWithIdentifier("loginSuccessful", sender: nil)
             }
             else{
                 self.errorLabel.text = "Unsuccessful login"
