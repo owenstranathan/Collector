@@ -3,11 +3,18 @@ from .models import Topic, Collector, Collection, Collectable
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
-    # collector = serializers.StringRelatedField()
+    # collector = serializers.ModelField(model_field=Collector()._meta.get_field('id'))
     class Meta:
         model = User
         lookup_field = "username"
-        fields = ('id', 'username', 'email', 'password', 'collector')
+        fields = ('id', 'username', 'email', 'password')
+
+    def create(self, validated_data):
+        user = User(**validated_data)
+        user.save()
+        collector = Collector(user=user)
+        collector.save()
+        return user
 
 class CollectorSerializer(serializers.ModelSerializer):
     # user = serializers.HyperlinkedRelatedField(

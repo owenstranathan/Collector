@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class CollectorView : UIViewController{
     
@@ -40,6 +41,16 @@ class CollectorView : UIViewController{
         server_instance.getCollector(username).onSuccess{
             result in
             let imageUrl = result["image"].stringValue
+            // TEST
+            //let imageUrl = "https://httpbin.org/image/png"
+            Alamofire.request(.GET, imageUrl).response() {
+                (_, response, data, error) in
+                //print(error!)
+                //print(response!)
+                let image = UIImage(data: data!)
+                self.imageView.image = image
+            }
+            
             let likes = result["likes"].int!
             print(imageUrl)
             // NOTE: Load the image from url and set as imageView's image instead of just printing it
@@ -51,4 +62,12 @@ class CollectorView : UIViewController{
         
     }
 
+    
+    // MARK: Actions
+    
+    @IBAction func logOut(sender: UIBarButtonItem) {
+        Server.logout()
+        self.performSegueWithIdentifier("logout", sender: nil)
+        
+    }
 }

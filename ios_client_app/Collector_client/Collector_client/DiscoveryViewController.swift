@@ -24,6 +24,27 @@ class DiscoveryView : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Right
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+
+        // Left
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeft)
+
+        //Up
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        self.view.addGestureRecognizer(swipeRight)
+
+        //Down
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        self.view.addGestureRecognizer(swipeDown)
+        
+        // Populate the view
         populate()
     }
     
@@ -39,25 +60,40 @@ class DiscoveryView : UIViewController{
         let collectable = server.getRandomCollectable()
         collectable.onSuccess{
             result in
-            let resultImageUrl = result["image"].stringValue
+            //let id = result["id"].int!
+            //let resultImageUrl = result["image"].stringValue
             let resultName = result["name"].stringValue
-            let resultCollection = result["collection"].int!
+            //let resultCollection = result["collection"].int!
             let resultDescription = result["description"].stringValue
             self.nameLabel.text = resultName
             self.descriptionLabel.text = resultDescription
-            
-            print(resultImageUrl)
-            
-            print(resultCollection)
             
         }
 
         
     }
     
+    // MARK: Navigation
+    
+    
     // MARK: Actions
+    func respondToSwipeGesture(swipe:UISwipeGestureRecognizer){
+        
+        switch swipe.direction{
+            
+        case UISwipeGestureRecognizerDirection.Right:
+            populate()
+        case UISwipeGestureRecognizerDirection.Down:
+            populate()
+        case UISwipeGestureRecognizerDirection.Left:
+            populate()
+        case UISwipeGestureRecognizerDirection.Up:
+            populate()
+        default:
+            break
 
-    @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
+        }
+        
     }
   
 }

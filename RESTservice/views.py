@@ -15,6 +15,7 @@ from rest_framework import viewsets, status
 class TopicViewSet(mixins.CreateModelMixin,
                    mixins.ListModelMixin,
                    mixins.RetrieveModelMixin,
+                   mixins.DestroyModelMixin,
                    viewsets.GenericViewSet):
     """
     This viewset automatically provides `list`, `create`, `retrieve`,
@@ -50,5 +51,5 @@ class CollectionViewSet(viewsets.ModelViewSet):
 """Create, List, Retrieve, Update and Destory COLLECTABLEViewSet"""
 class CollectableViewSet(viewsets.ModelViewSet):
     queryset = Collectable.objects.all()
-    lookup_field = 'name'
+    lookup_field = 'id'
     serializer_class = CollectableSerializer

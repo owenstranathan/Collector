@@ -23,7 +23,6 @@ class Server{
     // MARK: Members
     // Static user variable (ie, only one user can be signed in at one time)
     static var user : String = "None"
-    static var user_id : Int = 0
     static var password : String =  "None"
     static var loggedin : Bool = false
     static var userDetails : JSON = nil
@@ -32,8 +31,8 @@ class Server{
     static let sharedInstance = Server()
     
     
-    // MARK: Initializer
-    init() {}
+
+    
     
     // MARK: GET and POST
     func GET(urlExtension : String) -> Future<JSON, NoError>{
@@ -48,21 +47,44 @@ class Server{
         return promise.future
     }
     
-    //    func POST(urlExtension : String? = "") -> JSON
-    //    {
-    //        guard let unwrappedUrl = urlExtension else{
-    //            return nil
-    //        }
-    //        var result : JSON = nil
-    //    }
+    func POST(urlExtension : String, parameters:Dictionary<String, String>)-> Future<JSON, NoError>{
+        let promise = Promise<JSON, NoError>()
+        Alamofire.request(Alamofire.Method.POST, SERVER_ROOT_URL+urlExtension, parameters: parameters).responseJSON{ response in
+            guard let data = response.data else{
+                return
+            }
+            let json = JSON(data:data)
+            print("POST")
+            print(json)
+            promise.success(json)
+        }
+        return promise.future
+    }
+    
+    func PUT(urlExtension : String, parameters : Dictionary<String,Int>) -> Future<JSON, NoError>{
+        let promise = Promise<JSON, NoError>()
+        Alamofire.request(Alamofire.Method.PUT, SERVER_ROOT_URL+urlExtension, parameters: parameters).responseJSON{ response in
+            guard let data = response.data else{
+                return
+            }
+            let json = JSON(data:data)
+            print("POST")
+            print(json)
+            promise.success(json)
+        }
+        return promise.future
 
-    // MARK: User functions
+    }
     
     func getSingleUser(username : String) -> Future<JSON, NoError>{
         let userInfo : Future<JSON, NoError> = self.GET(USERS + username)
         return userInfo
     }
     
+    func createUser(username :String, email:String, password:String) -> Future<JSON, NoError>{
+        let parameters = ["username":username, "email":email, "password":password]
+        return POST(USERS, parameters:parameters)
+    }
     
     // MARK: Login/Logout
     
@@ -92,6 +114,15 @@ class Server{
         return promise.future
     }
     
+    static func logout() {
+        self.user = "None"
+        self.password = "None"
+        self.loggedin = false
+        self.userDetails = nil
+    }
+    
+    // MARK: Collectables
+    
     func getRandomCollectable()-> Future<JSON, NoError>{
         let promise = Promise<JSON, NoError>()
         Alamofire.request(.GET, SERVER_ROOT_URL+COLLECTABLES).responseJSON{ response in
@@ -107,6 +138,8 @@ class Server{
         }
         return promise.future
     }
+    
+    // MARK: Collectors
     
     func getCollector(username:String) -> Future<JSON, NoError>{
         return self.GET(COLLECTORS+username)
