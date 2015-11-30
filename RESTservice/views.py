@@ -10,6 +10,12 @@ from rest_framework.response import Response
 from rest_framework import renderers
 from rest_framework import viewsets, status
 
+from django.http import HttpResponse
+
+
+def imageView(request):
+    image = Collector.objects.get(id=14).image
+    return HttpResponse(image, content_type="image/png")
 
 """Create, List and Retrieve TOPICViewSet"""
 class TopicViewSet(mixins.CreateModelMixin,

@@ -14,6 +14,7 @@ router.register(r'collectables', views.CollectableViewSet)
 urlpatterns = [
     # The auto made url patterns for my models
     url(r'^', include(router.urls)),
+    url(r'^Image/$', views.imageView, name='image_view'),
 ]
 
 # urlpatterns = format_suffix_patterns(urlpatterns)
