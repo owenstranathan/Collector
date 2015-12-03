@@ -7,11 +7,13 @@ use_frameworks!
 
 
 
+
+
 target 'Collector_client' do
     pod 'Alamofire', '~> 3.0'
+    pod 'AlamofireImage', '~> 2.0'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'BrightFutures'
-
 end
 
 target 'Collector_clientTests' do
@@ -21,4 +23,3 @@ end
 target 'Collector_clientUITests' do
 
 end
-

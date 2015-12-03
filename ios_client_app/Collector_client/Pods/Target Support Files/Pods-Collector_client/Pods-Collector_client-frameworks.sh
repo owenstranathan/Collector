@@ -85,12 +85,14 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Collector_client/Alamofire.framework"
+  install_framework "Pods-Collector_client/AlamofireImage.framework"
   install_framework "Pods-Collector_client/BrightFutures.framework"
   install_framework "Pods-Collector_client/Result.framework"
   install_framework "Pods-Collector_client/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Collector_client/Alamofire.framework"
+  install_framework "Pods-Collector_client/AlamofireImage.framework"
   install_framework "Pods-Collector_client/BrightFutures.framework"
   install_framework "Pods-Collector_client/Result.framework"
   install_framework "Pods-Collector_client/SwiftyJSON.framework"

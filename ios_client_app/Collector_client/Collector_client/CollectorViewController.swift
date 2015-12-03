@@ -40,23 +40,19 @@ class CollectorView : UIViewController{
         let server_instance = Server()
         server_instance.getCollector(username).onSuccess{
             result in
-            let imageUrl = result["image"].stringValue
             // TEST
-            //let imageUrl = "https://httpbin.org/image/png"
-            Alamofire.request(.GET, imageUrl).response() {
-                (_, response, data, error) in
-                //print(error!)
-                //print(response!)
-                let image = UIImage(data: data!)
-                self.imageView.image = image
-            }
-            
             let likes = result["likes"].int!
-            print(imageUrl)
             // NOTE: Load the image from url and set as imageView's image instead of just printing it
             self.likesLabel.text = String(likes) + " likes"
-            
         
+        }
+        
+        server_instance.getCollectorImage(username).onSuccess{
+            result in
+            let image = result
+            self.imageView.contentMode = .ScaleAspectFit
+            self.imageView.image = image
+
         }
         
         

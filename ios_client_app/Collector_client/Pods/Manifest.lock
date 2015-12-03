@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (3.1.2)
+  - AlamofireImage (2.1.1):
+    - Alamofire (~> 3.1)
   - BrightFutures (3.0.0):
     - Result (= 0.6.0-beta.4)
   - Result (0.6.0-beta.4)
@@ -7,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - AlamofireImage (~> 2.0)
   - BrightFutures
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -21,6 +24,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  AlamofireImage: 31f7c4e9f516183e0ef2d2da18318de28a4628b8
   BrightFutures: 4a3f46747e5633562bdcef55c9e291bfb7288c34
   Result: f7927152cbaec0c043abb06ba0bc432678818418
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3

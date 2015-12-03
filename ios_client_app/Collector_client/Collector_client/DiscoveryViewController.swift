@@ -18,12 +18,14 @@ class DiscoveryView : UIViewController{
     
     // MARK: Outlets
     
+    @IBOutlet weak var titleLabel: UINavigationItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Right
         let swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
@@ -56,9 +58,7 @@ class DiscoveryView : UIViewController{
     func populate() -> Void{
         
         let server = Server()
-        
-        let collectable = server.getRandomCollectable()
-        collectable.onSuccess{
+        server.getRandomCollectable().onSuccess{
             result in
             //let id = result["id"].int!
             //let resultImageUrl = result["image"].stringValue
@@ -66,10 +66,19 @@ class DiscoveryView : UIViewController{
             //let resultCollection = result["collection"].int!
             let resultDescription = result["description"].stringValue
             self.nameLabel.text = resultName
+            self.titleLabel.title = resultName
             self.descriptionLabel.text = resultDescription
-            
-        }
-
+            print("andThen")
+            }.andThen{ result in
+                print(result)
+                let collectable_name = self.nameLabel.text!
+                server.getCollectableImage(collectable_name).onSuccess{
+                    result in
+                    self.imageView.contentMode = .ScaleAspectFit
+                    self.imageView.image = result
+                }
+            }
+        
         
     }
     

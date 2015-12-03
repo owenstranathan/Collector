@@ -13,8 +13,13 @@ from rest_framework import viewsets, status
 from django.http import HttpResponse
 
 
-def imageView(request):
-    image = Collector.objects.get(id=14).image
+def CollectorImageView(request, collector_name):
+    user_id = User.objects.get(username=collector_name).id
+    image = Collector.objects.get(user_id=user_id).image
+    return HttpResponse(image, content_type="image/png")
+
+def CollectableImageView(request, collectable_name):
+    image = Collectable.objects.get(name=collectable_name).image
     return HttpResponse(image, content_type="image/png")
 
 """Create, List and Retrieve TOPICViewSet"""

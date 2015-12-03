@@ -116,7 +116,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-h1-bA9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-h1-bA9">
                                 <rect key="frame" x="0.0" y="64" width="600" height="298"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmP-PA-CiY">
@@ -133,6 +133,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5h2-h1-bA9" firstAttribute="centerY" secondItem="ZQE-gM-DL3" secondAttribute="centerY" constant="-87" id="Oub-yy-J4a"/>
+                            <constraint firstItem="5h2-h1-bA9" firstAttribute="centerX" secondItem="ZQE-gM-DL3" secondAttribute="centerX" id="Z3N-pA-r6I"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ybk-Zn-hob">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="fq2-2W-Bde">
@@ -157,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="1901" y="1037"/>
         </scene>
-        <!--Discovery View-->
+        <!--Title-->
         <scene sceneID="72S-NF-UZE">
             <objects>
                 <viewController id="YFb-al-Sn5" customClass="DiscoveryView" customModule="Collector_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -170,7 +174,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uc-TC-ubd">
-                                <rect key="frame" x="35" y="28" width="531" height="389"/>
+                                <rect key="frame" x="35" y="28" width="531" height="306"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdH-sy-ET9">
@@ -187,7 +191,16 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TU8-vk-G9d">
                                 <rect key="frame" x="241" y="524" width="118" height="56"/>
-                                <state key="normal" title="Add to Collection"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="+"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czd-gD-6qI">
+                                <rect key="frame" x="163" y="352" width="114" height="76"/>
+                                <state key="normal" title="Love" image="Love_icon_full"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNU-pW-5o0">
+                                <rect key="frame" x="315" y="355" width="140" height="70"/>
+                                <state key="normal" title="Hate"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -196,16 +209,24 @@
                             <constraint firstItem="3uc-TC-ubd" firstAttribute="centerX" secondItem="gUI-ws-Rkm" secondAttribute="centerX" id="4y5-c8-LaW"/>
                             <constraint firstItem="Mpp-Qh-3oW" firstAttribute="centerX" secondItem="gUI-ws-Rkm" secondAttribute="centerX" constant="2" id="6eN-eK-ITZ"/>
                             <constraint firstItem="jdH-sy-ET9" firstAttribute="centerY" secondItem="gUI-ws-Rkm" secondAttribute="centerY" constant="139" id="7JT-3g-iEQ"/>
+                            <constraint firstItem="oNU-pW-5o0" firstAttribute="centerY" secondItem="gUI-ws-Rkm" secondAttribute="centerY" constant="90" id="AWo-LC-jdh"/>
+                            <constraint firstItem="oNU-pW-5o0" firstAttribute="centerX" secondItem="gUI-ws-Rkm" secondAttribute="centerX" constant="85" id="EZX-pS-1np"/>
                             <constraint firstItem="Mpp-Qh-3oW" firstAttribute="centerY" secondItem="gUI-ws-Rkm" secondAttribute="centerY" constant="181" id="Kvi-td-1qC"/>
                             <constraint firstItem="TU8-vk-G9d" firstAttribute="centerX" secondItem="gUI-ws-Rkm" secondAttribute="centerX" constant="1" id="UA5-a7-22h"/>
+                            <constraint firstItem="czd-gD-6qI" firstAttribute="centerY" secondItem="gUI-ws-Rkm" secondAttribute="centerY" constant="90" id="VWq-nL-MR0"/>
+                            <constraint firstItem="czd-gD-6qI" firstAttribute="centerY" secondItem="gUI-ws-Rkm" secondAttribute="centerY" constant="90" id="WcJ-Op-Njg"/>
+                            <constraint firstItem="czd-gD-6qI" firstAttribute="centerX" secondItem="gUI-ws-Rkm" secondAttribute="centerX" constant="-81" id="rsS-yg-7cJ"/>
+                            <constraint firstItem="czd-gD-6qI" firstAttribute="centerX" secondItem="gUI-ws-Rkm" secondAttribute="centerX" constant="-80" id="s1S-pS-8p4"/>
                             <constraint firstItem="TU8-vk-G9d" firstAttribute="centerY" secondItem="gUI-ws-Rkm" secondAttribute="centerY" constant="251" id="s3C-bK-2MV"/>
                             <constraint firstItem="3uc-TC-ubd" firstAttribute="centerY" secondItem="gUI-ws-Rkm" secondAttribute="centerY" constant="-77.5" id="ytn-Zx-LPF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="BPR-XG-lr3"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="Mpp-Qh-3oW" id="pu5-83-8v8"/>
                         <outlet property="imageView" destination="3uc-TC-ubd" id="oTf-UU-eIy"/>
                         <outlet property="nameLabel" destination="jdH-sy-ET9" id="wYi-Rx-v25"/>
+                        <outlet property="titleLabel" destination="BPR-XG-lr3" id="x51-70-8cx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxS-Uq-qQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -376,4 +397,7 @@
             <point key="canvasLocation" x="1058" y="1037"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Love_icon_full" width="206" height="209"/>
+    </resources>
 </document>

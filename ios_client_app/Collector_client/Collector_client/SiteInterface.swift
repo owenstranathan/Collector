@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 import BrightFutures
 
@@ -139,15 +140,68 @@ class Server{
         return promise.future
     }
     
+    func getCollectableImage(collectable_name:String) -> Future<UIImage, NoError>{
+        return getImageFromURL(SERVER_ROOT_URL+COLLECTABLES+collectable_name+"/image/")
+    }
+
+    
     // MARK: Collectors
     
     func getCollector(username:String) -> Future<JSON, NoError>{
         return self.GET(COLLECTORS+username)
     }
-
+    
+    func getCollectorImage(username:String) -> Future<UIImage, NoError>{
+        return getImageFromURL(SERVER_ROOT_URL+COLLECTORS+username+"/image/")
+    }
+    
+    // MARK: Image
+    
+    func getImageFromURL(url:String) -> Future<UIImage, NoError>{
+        let promise = Promise<UIImage, NoError>()
+        print("This is the url request to " + encode_url(url))
+        Alamofire.request(Alamofire.Method.GET, encode_url(url)).responseImage{ response in
+//            debugPrint(response)
+//            debugPrint(response.result)
+//            guard let data = response.data else{
+//                print("Data not initiailized")
+//                return
+//            }
+            
+            guard let image = response.result.value else{
+                print("image not aquired")
+                return
+            }
+//            guard let image = UIImage(data:data) else{
+//                print("Image not initialized, BAD DATA!")
+//                return
+//            }
+            promise.success(image)
+        }
+        return promise.future
+    }
+    
+    
+    
+    
 //    func getRandomElement(JSON) -> JSON{
 //        
 //    }
     
+    // MARK: Utils
+    
+    func encode_url(url:String) -> String{
+        var encoded_url : String = ""
+        for element in url.characters{
+            if(element == " " ){
+                encoded_url += "%20"
+            }
+            else{
+                encoded_url.append(element)
+            }
+            
+        }
+        return encoded_url
+    }
 
 }
